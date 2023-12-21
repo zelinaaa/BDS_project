@@ -72,8 +72,10 @@ public class LoggedInController {
         Stage stage = new Stage();
         stage.setTitle("Account Settings");
         stage.setScene(scene);
-        EditCustomerController editCustomerController = new EditCustomerController();
+
+        EditCustomerController editCustomerController = fxmlLoader.getController();
         editCustomerController.initData(loggedUser, this);
+
         stage.show();
     }
 

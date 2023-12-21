@@ -68,6 +68,9 @@ public class CustomerRepository {
 
     }
 
+    public 
+
+
     private CustomerAuthView mapToPersonAuth(ResultSet rs) throws SQLException {
         CustomerAuthView customer = new CustomerAuthView();
         customer.setEmail(rs.getString("email"));
