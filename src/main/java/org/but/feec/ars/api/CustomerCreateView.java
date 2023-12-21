@@ -1,6 +1,7 @@
 package org.but.feec.ars.api;
 
 public class CustomerCreateView {
+    private Integer person_id;
     private String first_name;
     private String family_name;
     private String date_of_birth;
@@ -19,6 +20,9 @@ public class CustomerCreateView {
     public void setPassword(char[] password) {
         this.password = password;
     }
+
+    public Integer getPerson_id() { return person_id;}
+    public void setPerson_id(Integer person_id) {this.person_id=person_id;}
 
     public String getFirst_name() {
         return first_name;

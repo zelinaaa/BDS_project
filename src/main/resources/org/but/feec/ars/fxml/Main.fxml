@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.ars.controllers.LoggedInController">
    <children>
       <AnchorPane layoutY="-3.0" prefHeight="409.0" prefWidth="600.0">
          <children>
-            <Label layoutX="261.0" layoutY="143.0" text="Jsi logged in" />
-            <TextField fx:id="flightid" layoutX="220.0" layoutY="78.0" />
+            <TextField fx:id="searchField" layoutX="129.0" layoutY="192.0" prefHeight="25.0" prefWidth="331.0" />
+            <Button fx:id="aboutButton" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" onAction="#handleAbout" text="About" />
+            <Button fx:id="contactsButton" layoutX="78.0" layoutY="370.0" mnemonicParsing="false" onAction="#handleContacs" text="Contacts" />
+            <Button fx:id="logoutButton" layoutX="530.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" />
+            <Button fx:id="helpButton" layoutX="480.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
+            <Button fx:id="accountSettingsButton" layoutX="363.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleAccountSettings" text="Account Settings" />
+            <Button fx:id="myBookingButton" layoutX="265.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleMyBooking" text="My Bookings" />
+            <Button fx:id="searchButton" layoutX="470.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleSearch" text="Search" />
          </children>
       </AnchorPane>
    </children>
