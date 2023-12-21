@@ -68,7 +68,9 @@ public class CustomerRepository {
 
     }
 
-    public 
+    /*public boolean updateCustomer(Integer person_id){
+
+    }*/
 
 
     private CustomerAuthView mapToPersonAuth(ResultSet rs) throws SQLException {

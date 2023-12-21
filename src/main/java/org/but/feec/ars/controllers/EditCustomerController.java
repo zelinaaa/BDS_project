@@ -32,6 +32,9 @@ public class EditCustomerController {
     private AddressRepository addressRepository;
     private LocalDate localDate;
 
+    ObservableList<AddressDetailView> addresses;
+    ObservableList<String> genders;
+
 
     public void initData(CustomerCreateView loggedUser, LoggedInController parentController){
         this.parentController = parentController;
@@ -58,9 +61,11 @@ public class EditCustomerController {
             localDate = null;
         }
 
-        ObservableList<String> genders = FXCollections.observableArrayList();
+        //ObservableList<String> genders = FXCollections.observableArrayList();
         //ObservableList<AddressRepository> address = FXCollections.observableArrayList();
-        ObservableList<AddressDetailView> addresses = addressRepository.getAllAddresses();
+        //ObservableList<AddressDetailView> addresses = addressRepository.getAllAddresses();
+        genders = FXCollections.observableArrayList();
+        addresses = addressRepository.getAllAddresses();
 
 
         genders.addAll("male", "female", "other");
@@ -74,6 +79,15 @@ public class EditCustomerController {
     }
 
     public void handleConfirm(ActionEvent event) {
+        String first_name = firstNameTextField.getText();
+        String family_name = familyNameTextField.getText();
+        String phone = phoneTextField.getText();
+        String gender = String.valueOf(genderComboBox.getSelectionModel().getSelectedItem());
+        AddressDetailView selectedAddress = (AddressDetailView) addressComboBox.getSelectionModel().getSelectedItem();
+        Integer address_id = selectedAddress.getAddress_id();
+        LocalDate localDate1 = dateOfBirthPicker.getValue();
+
+        //dodělat zde 21.12. 21:34, editnout customer create view a hodit update do db (asi :DDD)
 
     }
 }
