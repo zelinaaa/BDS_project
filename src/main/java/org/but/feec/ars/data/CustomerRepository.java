@@ -6,6 +6,8 @@ import org.but.feec.ars.config.DataSourceConfig;
 
 import java.io.PrintStream;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class CustomerRepository {
 
@@ -68,9 +70,37 @@ public class CustomerRepository {
 
     }
 
-    /*public boolean updateCustomer(Integer person_id){
+    public void updateCustomer(CustomerCreateView customerCreateView){
+        String updateCustomer = "update bds.person p set first_name=?, family_name=?, date_of_birth=?, gender=?::bds.gender_select, phone=?, address_id=?" +
+                " where p.person_id=?";
 
-    }*/
+        Connection connection = null;
+
+        try{
+            connection = DataSourceConfig.getConnection();
+            connection.setAutoCommit(false);
+            PreparedStatement ps = connection.prepareStatement(updateCustomer);
+            ps.setString(1, customerCreateView.getFirst_name());
+            ps.setString(2, customerCreateView.getFamily_name());
+            ps.setDate(3, Date.valueOf(customerCreateView.getDate_of_birth()));
+            ps.setString(4, customerCreateView.getGender());
+            ps.setString(5, customerCreateView.getPhone());
+            ps.setLong(6, customerCreateView.getAddress_id());
+            ps.setLong(7, customerCreateView.getPerson_id());
+
+            ps.executeUpdate();
+            connection.commit();
+
+        }catch (SQLException e){
+            try{
+                connection.rollback();
+                System.out.println("here1\n" + e);
+            }catch (Exception e2){
+                //dodělat exception logger
+                System.out.println("here\n" + e2);
+            }
+        }
+    }
 
 
     private CustomerAuthView mapToPersonAuth(ResultSet rs) throws SQLException {

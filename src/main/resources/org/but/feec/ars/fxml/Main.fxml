@@ -16,6 +16,7 @@
             <Button fx:id="accountSettingsButton" layoutX="363.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleAccountSettings" text="Account Settings" />
             <Button fx:id="myBookingButton" layoutX="265.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleMyBooking" text="My Bookings" />
             <Button fx:id="searchButton" layoutX="470.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleSearch" text="Search" />
+            <Button fx:id="searchAllButton" layoutX="470.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleSearchAll" text="Search All" />
          </children>
       </AnchorPane>
    </children>

@@ -83,5 +83,46 @@ public class LoggedInController {
     }
 
     public void handleSearch(ActionEvent event) {
+        /*FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(App.class.getResource("fxml/SearchBooking.fxml"));
+        Scene scene = null;
+        try{
+            scene = new Scene(fxmlLoader.load());
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Search Bookings");
+        stage.setScene(scene);
+
+        SearchBookingController searchBookingController = fxmlLoader.getController();
+        searchBookingController.initData(searchField.getText(), this);
+
+        stage.show();*/
+
+        showSearch(event, searchField.getText());
+    }
+
+    public void handleSearchAll(ActionEvent event) {
+        showSearch(event, "");
+    }
+
+    private void showSearch(ActionEvent event, String searched){
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(App.class.getResource("fxml/SearchBooking.fxml"));
+        Scene scene = null;
+        try{
+            scene = new Scene(fxmlLoader.load());
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Search Bookings");
+        stage.setScene(scene);
+
+        SearchBookingController searchBookingController = fxmlLoader.getController();
+        searchBookingController.initData(searched, this);
+
+        stage.show();
     }
 }

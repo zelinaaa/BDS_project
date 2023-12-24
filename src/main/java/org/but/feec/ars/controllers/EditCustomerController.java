@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import org.but.feec.ars.api.AddressDetailView;
 import org.but.feec.ars.api.CustomerCreateView;
 import org.but.feec.ars.data.AddressRepository;
@@ -52,6 +53,7 @@ public class EditCustomerController {
         loggedUser.setGender(customerCreateView1.getGender());
         loggedUser.setPhone(customerCreateView1.getPhone());
         loggedUser.setAddress_id(customerCreateView1.getAddress_id());
+        loggedUser.setPerson_id(customerCreateView1.getPerson_id());
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -61,9 +63,6 @@ public class EditCustomerController {
             localDate = null;
         }
 
-        //ObservableList<String> genders = FXCollections.observableArrayList();
-        //ObservableList<AddressRepository> address = FXCollections.observableArrayList();
-        //ObservableList<AddressDetailView> addresses = addressRepository.getAllAddresses();
         genders = FXCollections.observableArrayList();
         addresses = addressRepository.getAllAddresses();
 
@@ -76,9 +75,23 @@ public class EditCustomerController {
         phoneTextField.setText((loggedUser.getPhone() == null) ? "" : loggedUser.getPhone());
         genderComboBox.setItems(genders);
         addressComboBox.setItems(addresses);
+
+        genderComboBox.setValue((loggedUser.getGender() == null) ? null : loggedUser.getGender());
+
+        for (AddressDetailView addressDetailView : addresses){
+            if (addressDetailView.getAddress_id() == loggedUser.getAddress_id() || addressDetailView.getAddress_id().equals(loggedUser.getAddress_id())){
+                addressComboBox.setValue(addressDetailView);
+                break;
+            }else {
+                addressComboBox.setValue(null);
+            }
+        }
+
     }
 
     public void handleConfirm(ActionEvent event) {
+        CustomerCreateView editCustomer = new CustomerCreateView();
+
         String first_name = firstNameTextField.getText();
         String family_name = familyNameTextField.getText();
         String phone = phoneTextField.getText();
@@ -86,8 +99,20 @@ public class EditCustomerController {
         AddressDetailView selectedAddress = (AddressDetailView) addressComboBox.getSelectionModel().getSelectedItem();
         Integer address_id = selectedAddress.getAddress_id();
         LocalDate localDate1 = dateOfBirthPicker.getValue();
+        Integer person_id = loggedUser.getPerson_id();
 
-        //dodělat zde 21.12. 21:34, editnout customer create view a hodit update do db (asi :DDD)
+        editCustomer.setPerson_id(person_id);
+        editCustomer.setFirst_name(first_name);
+        editCustomer.setFamily_name(family_name);
+        editCustomer.setPhone(phone);
+        editCustomer.setGender(gender);
+        editCustomer.setAddress_id(address_id);
+        editCustomer.setDate_of_birth(String.valueOf(localDate1));
+
+        customerRepository.updateCustomer(editCustomer);
+
+        Stage stageOld = (Stage) confirmButton.getScene().getWindow();
+        stageOld.close();
 
     }
 }

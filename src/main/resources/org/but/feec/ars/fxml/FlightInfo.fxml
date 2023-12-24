@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.ars.controllers.FlightInfoController">
+   <children>
+      <AnchorPane prefHeight="256.0" prefWidth="635.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Info">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="50.0" text="Origin Airport">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="75.0" text="Destination Airport">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="100.0" text="Aircraft Model">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="125.0" text="Departure Datetime">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="150.0" text="Arrival Datetime">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="175.0" text="Is scheduled">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="200.0" text="Fare per class">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="fareComboBox" layoutX="126.0" layoutY="200.0" onAction="#handleComboBox" prefWidth="150.0" />
+            <Label fx:id="fareLabel" layoutX="290.0" layoutY="200.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="originAirportLabel" layoutX="170.0" layoutY="50.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="destinationAirportLabel" layoutX="170.0" layoutY="75.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="aircraftModelLabel" layoutX="170.0" layoutY="100.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="departureDatetimeLabel" layoutX="170.0" layoutY="125.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="arrivalDatetimeLabel" layoutX="170.0" layoutY="150.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="isScheduledLabel" layoutX="170.0" layoutY="175.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
