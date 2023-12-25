@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import org.but.feec.ars.api.AircraftFareView;
 import org.but.feec.ars.api.FlightInfoView;
 import org.but.feec.ars.api.FlightScheduleView;
+import org.but.feec.ars.api.SeatView;
 import org.but.feec.ars.config.DataSourceConfig;
 
 import java.sql.Connection;
@@ -73,7 +74,7 @@ public class FlightRepository {
     }
 
     public ObservableList<AircraftFareView> getAircraftInfo(Integer aircraft_id){
-        String selectAircraftInfo = "select am.model, am.fare_per_unit, amtcp.travel_class_fare_multiplier, amtcp.travel_class_id\n" +
+        String selectAircraftInfo = "select am.model, am.fare_per_unit, amtcp.travel_class_fare_multiplier, amtcp.travel_class_id, a.aircraft_model_id " +
                 "from bds.aircraft a left join bds.aircraft_model am on \n" +
                 "a.aircraft_model_id=am.aircraft_model_id left join bds.aircraft_model_travel_class_pricing amtcp\n" +
                 "on am.aircraft_model_id=amtcp.aircraft_model_id where aircraft_id = ?";
@@ -94,12 +95,41 @@ public class FlightRepository {
         return FXCollections.observableArrayList(aircraftFareViewList);
     }
 
+    public ObservableList<SeatView> getAircraftSeats(Integer aircraft_model_id){
+        String selectAircraftSeats = "select seat_id, seat_number, travel_class_id from bds.seat where aircraft_model_id = ?";
+
+        List<SeatView> seatViews = new ArrayList<>();
+
+        try (Connection connection = DataSourceConfig.getConnection()){
+            PreparedStatement ps = connection.prepareStatement(selectAircraftSeats);
+            ps.setInt(1, aircraft_model_id);
+            try (ResultSet rs = ps.executeQuery()){
+                while (rs.next()){
+                    seatViews.add(mapToSeat(rs));
+                }
+            }
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return FXCollections.observableArrayList(seatViews);
+    }
+
+    private SeatView mapToSeat(ResultSet rs) throws SQLException{
+        SeatView seatView = new SeatView();
+        seatView.setSeat_id(rs.getInt("seat_id"));
+        seatView.setSeat_number(rs.getInt("seat_number"));
+        seatView.setTravel_class_id(rs.getInt("travel_class_id"));
+
+        return seatView;
+    }
+
     private AircraftFareView mapToAircraft(ResultSet rs) throws SQLException{
         AircraftFareView aircraftFareView = new AircraftFareView();
         aircraftFareView.setModel(rs.getString("model"));
         aircraftFareView.setFare_per_unit(rs.getDouble("fare_per_unit"));
         aircraftFareView.setTravel_class_fare_multiplier(rs.getDouble("travel_class_fare_multiplier"));
         aircraftFareView.setTravel_class_id(rs.getInt("travel_class_id"));
+        aircraftFareView.setAircraft_model_id(rs.getInt("aircraft_model_id"));
 
         return aircraftFareView;
     }

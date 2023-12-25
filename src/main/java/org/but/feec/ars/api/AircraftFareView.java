@@ -5,6 +5,15 @@ public class AircraftFareView {
     private Double fare_per_unit;
     private Double travel_class_fare_multiplier;
     private Integer travel_class_id;
+    private Integer aircraft_model_id;
+
+    public Integer getAircraft_model_id() {
+        return aircraft_model_id;
+    }
+
+    public void setAircraft_model_id(Integer aircraft_model_id) {
+        this.aircraft_model_id = aircraft_model_id;
+    }
 
     public String getModel() {
         return model;

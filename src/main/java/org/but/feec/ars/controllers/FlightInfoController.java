@@ -40,7 +40,7 @@ public class FlightInfoController {
         classes.addAll("economy", "economy+", "business", "first class");
         fareComboBox.setItems(classes);
 
-        aircraft = flightRepository.getAircraftInfo(selectedFlight.getFlight_id());
+        aircraft = flightRepository.getAircraftInfo(selectedFlight.getAircraft_id());
 
         originAirportLabel.setText(selectedFlight.getOrigin_airport());
         destinationAirportLabel.setText(selectedFlight.getDestination_airport());

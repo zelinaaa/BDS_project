@@ -12,6 +12,16 @@ public class FlightScheduleView {
     private String is_scheduled;
     private Integer aircraft_id;
 
+    private Integer aircraft_model_id;
+
+    public Integer getAircraft_model_id() {
+        return aircraft_model_id;
+    }
+
+    public void setAircraft_model_id(Integer aircraft_model_id) {
+        this.aircraft_model_id = aircraft_model_id;
+    }
+
     public Integer getAircraft_id() {
         return aircraft_id;
     }

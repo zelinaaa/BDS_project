@@ -30,7 +30,6 @@ public class LoggedInController {
     public void initdata(CustomerCreateView loggedUser, LogInController parentController){
         this.parentController = parentController;
         this.loggedUser = loggedUser;
-        //flightid.setText(customerCreateView.getEmail());
     }
 
     public void handleAbout(ActionEvent event) {
@@ -83,23 +82,6 @@ public class LoggedInController {
     }
 
     public void handleSearch(ActionEvent event) {
-        /*FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(App.class.getResource("fxml/SearchBooking.fxml"));
-        Scene scene = null;
-        try{
-            scene = new Scene(fxmlLoader.load());
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-        Stage stage = new Stage();
-        stage.setTitle("Search Bookings");
-        stage.setScene(scene);
-
-        SearchBookingController searchBookingController = fxmlLoader.getController();
-        searchBookingController.initData(searchField.getText(), this);
-
-        stage.show();*/
-
         showSearch(event, searchField.getText());
     }
 
@@ -121,7 +103,7 @@ public class LoggedInController {
         stage.setScene(scene);
 
         SearchBookingController searchBookingController = fxmlLoader.getController();
-        searchBookingController.initData(searched, this);
+        searchBookingController.initData(loggedUser, searched, this);
 
         stage.show();
     }

@@ -10,6 +10,16 @@ public class FlightInfoView {
     private String is_scheduled;
     private Double fare;
 
+    private Integer aircraft_id;
+
+    public Integer getAircraft_id() {
+        return aircraft_id;
+    }
+
+    public void setAircraft_id(Integer aircraft_id) {
+        this.aircraft_id = aircraft_id;
+    }
+
     public Integer getFlight_id() {
         return flight_id;
     }
