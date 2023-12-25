@@ -30,7 +30,7 @@ public class CustomerRepository {
     }
 
    public CustomerCreateView getCustomerInfoByEmail(String email){
-        String selectAll = "select person_id, first_name, family_name, date_of_birth, gender, phone, address_id, balance, bookings_created, password_hash" +
+        String selectAll = "select person_id, first_name, family_name, date_of_birth, gender, phone, address_id, balance, password_hash" +
                 " from bds.person where email=?";
 
         try (Connection connection = DataSourceConfig.getConnection();
@@ -52,15 +52,35 @@ public class CustomerRepository {
 
     public void createCustomer(CustomerCreateView customerCreateView){
         String insertCustomer = "insert into bds.person (email, password_hash) values (?,?)";
+        String selectPersonID = "select person_id from bds.person where email=?";
+        String assignCustomerRole = "insert into bds.person_has_role (person_id, role_id) values (?, ?)";
 
-        try (Connection connection = DataSourceConfig.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(insertCustomer, Statement.RETURN_GENERATED_KEYS)){
-            preparedStatement.setString(1, customerCreateView.getEmail());
-            preparedStatement.setString(2, String.valueOf(customerCreateView.getPassword()));
+        try (Connection connection = DataSourceConfig.getConnection()){
+            PreparedStatement ps1 = connection.prepareStatement(insertCustomer);
+            ps1.setString(1, customerCreateView.getEmail());
+            ps1.setString(2, String.valueOf(customerCreateView.getPassword()));
 
-            int affectedRows = preparedStatement.executeUpdate();
+            int affectedRows = ps1.executeUpdate();
 
             if (affectedRows == 0){
+                //dodělat throw
+            }
+
+            Integer person_id = null;
+
+            PreparedStatement ps2 = connection.prepareStatement(selectPersonID);
+            ps2.setString(1, customerCreateView.getEmail());
+            ResultSet rs = ps2.executeQuery();
+            if (rs.next()){
+                person_id = rs.getInt("person_id");
+            }
+
+            PreparedStatement ps3 = connection.prepareStatement(assignCustomerRole);
+            ps3.setInt(1, person_id);
+            ps3.setInt(2, 1);
+            int affectedRows2 = ps3.executeUpdate();
+
+            if (affectedRows2 == 0){
                 //dodělat throw
             }
 
@@ -102,6 +122,36 @@ public class CustomerRepository {
         }
     }
 
+    public Integer getRoleID(String email){
+        String selectPersonID = "select person_id from bds.person where email=?";
+        String selectRoleID = "select role_id from bds.person_has_role where person_id=?";
+
+        Integer person_id = null;
+
+        Connection connection = null;
+
+        try {
+            connection = DataSourceConfig.getConnection();
+
+            PreparedStatement ps1 = connection.prepareStatement(selectPersonID);
+            ps1.setString(1, email);
+            ResultSet rs1 = ps1.executeQuery();
+            if (rs1.next()){
+                person_id = rs1.getInt("person_id");
+            }
+
+            PreparedStatement ps2 = connection.prepareStatement(selectRoleID);
+            ps2.setInt(1, person_id);
+            ResultSet rs2 = ps2.executeQuery();
+            if (rs2.next()){
+                return rs2.getInt("role_id");
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
 
     private CustomerAuthView mapToPersonAuth(ResultSet rs) throws SQLException {
         CustomerAuthView customer = new CustomerAuthView();
@@ -120,7 +170,6 @@ public class CustomerRepository {
         customerCreateView.setAddress_id(rs.getInt("address_id"));
         customerCreateView.setPerson_id(rs.getInt("person_id"));
         customerCreateView.setBalance(rs.getInt("balance"));
-        customerCreateView.setBookings_created(rs.getInt("bookings_created"));
         customerCreateView.setPassword(rs.getString("password_hash").toCharArray());
 
         return customerCreateView;

@@ -5,10 +5,9 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.but.feec.ars.api.CustomerCreateView;
 import org.but.feec.ars.data.CustomerRepository;
@@ -24,7 +23,7 @@ public class SignInController {
     @FXML
     private TextField email_signin;
     @FXML
-    private TextField password_signin;
+    private PasswordField password_signin;
     @FXML
     private Button button;
 

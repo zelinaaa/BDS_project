@@ -10,6 +10,8 @@ import org.but.feec.ars.api.AircraftFareView;
 import org.but.feec.ars.api.FlightInfoView;
 import org.but.feec.ars.data.FlightRepository;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 
 public class FlightInfoController {
@@ -66,7 +68,7 @@ public class FlightInfoController {
         classes_id.put("economy", 1);
         classes_id.put("economy+", 2);
         classes_id.put("business", 3);
-        classes_id.put("first_class", 4);
+        classes_id.put("first class", 4);
 
         String selectedValue = (String) fareComboBox.getValue();
         Integer class_id = classes_id.get(selectedValue);
@@ -74,13 +76,13 @@ public class FlightInfoController {
         for (AircraftFareView aircraftFareView : aircraft){
             if (aircraftFareView.getTravel_class_id() == class_id){
                 Double farePrice = aircraftFareView.getFare_per_unit() * aircraftFareView.getTravel_class_fare_multiplier();
-                fareLabel.setText(String.valueOf(farePrice));
+                BigDecimal bd = BigDecimal.valueOf(farePrice);
+                bd = bd.setScale(2, RoundingMode.HALF_UP);
+                fareLabel.setText(String.valueOf(bd));
                 break;
             }else {
                 fareLabel.setText("This model doesn't have this class available.");
             }
         }
-
-        //System.out.println("he");
     }
 }

@@ -5,10 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import org.but.feec.ars.App;
 import org.but.feec.ars.api.*;
 import org.but.feec.ars.data.BookingRepository;
 import org.but.feec.ars.data.CustomerRepository;
@@ -16,6 +20,7 @@ import org.but.feec.ars.data.FlightRepository;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
@@ -44,6 +49,7 @@ public class BookingController {
     ObservableList<SeatView> seatsTemp = FXCollections.observableArrayList();
     ObservableList<BookingView> bookedSeats;
 
+    private CustomerCreateView loggedUserWithInfo;
 
     public void initData(CustomerCreateView loggedUser, ObservableList<AircraftFareView> aircraft , FlightScheduleView flightScheduleView, SearchBookingController parentController){
         this.parentController = parentController;
@@ -53,7 +59,7 @@ public class BookingController {
         this.customerRepository = new CustomerRepository();
         this.flightRepository = new FlightRepository();
         this.bookingRepository = new BookingRepository();
-        CustomerCreateView loggedUserWithInfo = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
+        loggedUserWithInfo = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
 
         //for aircraft_model_id
         AircraftFareView firstAircraft = aircraft.get(0);
@@ -90,8 +96,24 @@ public class BookingController {
         if (checkIfEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Booking failed.");
-            alert.setHeaderText("Booking failed.");
+            alert.setHeaderText("Booking failed. Enter all required parameters.");
             alert.showAndWait();
+        }else {
+            BookingView bookingView = new BookingView();
+            bookingView.setPerson_id(loggedUserWithInfo.getPerson_id());
+            bookingView.setFlight_id(selectedFlight.getFlight_id());
+
+            for (SeatView seatView : seats){
+                if (seatView.getSeat_number() == Integer.valueOf(seatComboBox.getValue().toString())){
+                    bookingView.setSeat_id(seatView.getSeat_id());
+                    break;
+                }
+            }
+
+            bookingRepository.insertBooking(bookingView);
+
+            Stage stageOld = (Stage) confirmButton.getScene().getWindow();
+            stageOld.close();
         }
 
     }
@@ -101,6 +123,8 @@ public class BookingController {
     }
 
     public void handleCancel(ActionEvent event) {
+        Stage stageOld = (Stage) cancelButton.getScene().getWindow();
+        stageOld.close();
     }
 
     public void handleClassComboBox(ActionEvent event) {

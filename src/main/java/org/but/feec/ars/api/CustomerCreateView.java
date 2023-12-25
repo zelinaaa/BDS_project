@@ -10,8 +10,17 @@ public class CustomerCreateView {
     private String phone;
     private Integer address_id;
     private Integer balance;
-    private Integer bookings_created;
     private char[] password;
+
+    private Integer role_id;
+
+    public Integer getRole_id() {
+        return role_id;
+    }
+
+    public void setRole_id(Integer role_id) {
+        this.role_id = role_id;
+    }
 
     public char[] getPassword() {
         return password;
@@ -87,13 +96,4 @@ public class CustomerCreateView {
     public void setBalance(Integer balance) {
         this.balance = balance;
     }
-
-    public Integer getBookings_created() {
-        return bookings_created;
-    }
-
-    public void setBookings_created(Integer bookings_created) {
-        this.bookings_created = bookings_created;
-    }
-
 }

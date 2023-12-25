@@ -6,10 +6,7 @@ import org.but.feec.ars.api.BookingView;
 import org.but.feec.ars.config.DataSourceConfig;
 import org.but.feec.ars.controllers.BookingController;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,27 @@ public class BookingRepository {
             throw new RuntimeException(e);
         }
         return FXCollections.observableArrayList(bookingViewList);
+    }
+
+    public void insertBooking(BookingView bookingView){
+        String insertBooking = "insert into bds.booking (flight_id, person_id, seat_id) values (?, ?, ?)";
+
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(insertBooking, Statement.RETURN_GENERATED_KEYS)){
+            preparedStatement.setInt(1, bookingView.getFlight_id());
+            preparedStatement.setInt(2, bookingView.getPerson_id());
+            preparedStatement.setInt(3, bookingView.getSeat_id());
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows == 0){
+                //dodělat throw
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private BookingView mapToBooking(ResultSet rs) throws SQLException{

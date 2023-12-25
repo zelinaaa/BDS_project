@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseButton;
@@ -18,6 +19,8 @@ import org.but.feec.ars.api.FlightInfoView;
 import org.but.feec.ars.api.FlightScheduleView;
 import org.but.feec.ars.data.CustomerRepository;
 import org.but.feec.ars.data.FlightRepository;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
 import java.io.IOException;
 
@@ -67,16 +70,28 @@ public class SearchBookingController {
         BookingController  bookingController = fxmlLoader.getController();
 
         FlightScheduleView flightScheduleView = (FlightScheduleView) listView.getSelectionModel().getSelectedItem();
-        //System.out.println(flightScheduleView.getFlight_id());
 
-        aircraft = flightRepository.getAircraftInfo(flightScheduleView.getAircraft_id());
+        ValidationSupport validation = new ValidationSupport();
+        validation.registerValidator(listView, Validator.createEmptyValidator("Select flight!"));
+        bookButton.disableProperty().bind(validation.invalidProperty());
 
-        bookingController.initData(loggedUser, aircraft ,flightScheduleView, this);
+        if (flightScheduleView == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Selecting flight failed.");
+            alert.setHeaderText("Select a flight and try again.");
+            alert.showAndWait();
+        }else {
+            aircraft = flightRepository.getAircraftInfo(flightScheduleView.getAircraft_id());
 
-        stage.show();
+            bookingController.initData(loggedUser, aircraft ,flightScheduleView, this);
+
+            stage.show();
+        }
     }
 
     public void handleCancel(ActionEvent event) {
+        Stage stageOld = (Stage) cancelButton.getScene().getWindow();
+        stageOld.close();
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {

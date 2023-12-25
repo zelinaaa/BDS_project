@@ -21,9 +21,11 @@ public class AuthService {
             return false;
         }
         CustomerAuthView customerAuthView = findPersonByEmail(email);
-        if (customerAuthView == null){
-            //throw new ResourceNotFoundException("Failed");
+        if (customerAuthView != null){
+            return ARGON2.verify(customerAuthView.getPassword(), password.toCharArray());
+        }else {
+            return false;
         }
-        return ARGON2.verify(customerAuthView.getPassword(), password.toCharArray());
+
     }
 }

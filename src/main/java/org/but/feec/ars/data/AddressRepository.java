@@ -26,9 +26,6 @@ public class AddressRepository {
              )){
             try (ResultSet rs = ps.executeQuery()){
                 while (rs.next()){
-                    //return (ObservableList<AddressView>) mapToAddress(rs);
-                    //return FXCollections.observableArrayList(mapToAddress(rs));
-                    //FXCollections.observableArrayList(mapToAddress(rs));
                     addressList.add(mapToAddress(rs));
                 }
             }

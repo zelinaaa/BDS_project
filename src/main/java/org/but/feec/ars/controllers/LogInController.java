@@ -2,15 +2,18 @@ package org.but.feec.ars.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.but.feec.ars.App;
 import javafx.fxml.FXML;
-import javafx.scene.control.Hyperlink;
 import org.but.feec.ars.api.CustomerCreateView;
 import org.but.feec.ars.data.CustomerRepository;
 import org.but.feec.ars.services.AuthService;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
 import java.io.Console;
 import java.io.IOException;
@@ -20,7 +23,7 @@ public class LogInController {
     @FXML
     public TextField emailTextField;
     @FXML
-    public TextField passwordTextField;
+    public PasswordField passwordTextField;
     @FXML
     private Button logInButton;
     @FXML
@@ -42,10 +45,17 @@ public class LogInController {
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
 
-        boolean authentication = authService.authenticate(email, password);
-        if (authentication) {
-            System.out.println("uspech");
+        ValidationSupport validation = new ValidationSupport();
+        validation.registerValidator(emailTextField, Validator.createEmptyValidator("Enter email address!"));
+        validation.registerValidator(passwordTextField, Validator.createEmptyValidator("Enter password!"));
+        logInButton.disableProperty().bind(validation.invalidProperty());
 
+        boolean authentication = authService.authenticate(email, password);
+
+        Integer role = customerRepository.getRoleID(email);
+
+
+        if (authentication && role == 1) {
             CustomerCreateView userLogged = new CustomerCreateView();
             userLogged.setEmail(email);
             userLogged.setPassword(password.toCharArray());
@@ -71,8 +81,13 @@ public class LogInController {
             stageOld.close();
             stage.show();
 
-        }else {
-            System.out.println("not uspech");
+        } else if (authentication && role == 2) {
+            System.out.println("administrator");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login failed!");
+            alert.setHeaderText("Username or password is not valid");
+            alert.showAndWait();
         }
     }
 
