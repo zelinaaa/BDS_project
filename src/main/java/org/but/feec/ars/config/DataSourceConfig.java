@@ -3,6 +3,9 @@ package org.but.feec.ars.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.but.feec.ars.data.BookingRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.sql.Connection;
@@ -15,14 +18,16 @@ public class DataSourceConfig {
     private static HikariConfig config = new HikariConfig();
     private static HikariDataSource ds;
 
+    private static final Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
 
     public static void preInit(){
-        //InputStream inputStream = null;
         InputStream inputStream = DataSourceConfig.class.getClassLoader().getResourceAsStream("application.properties");
         try {
             initializeDataSource(inputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | NullPointerException | IllegalArgumentException e){
+            logger.error("Configurating database failed: " + e.getMessage());
+        }catch (Exception e) {
+            logger.error("Connect to database failed: " + e.getMessage());
         }
     }
     private static void initializeDataSource(InputStream inputStream) throws IOException {
@@ -35,6 +40,7 @@ public class DataSourceConfig {
     }
 
     public static Connection getConnection() throws SQLException {
+        //logger.info("Connection to database established.");
         return ds.getConnection();
     }
 

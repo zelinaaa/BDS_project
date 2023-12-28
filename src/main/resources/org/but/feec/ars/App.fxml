@@ -46,6 +46,7 @@
                </font>
             </Label>
             <Hyperlink fx:id="signInHyperlink" layoutX="292.0" layoutY="412.0" onAction="#signInActionHandler" text="Sign up" />
+            <Button fx:id="sqlInjectionButton" layoutX="399.0" layoutY="475.0" mnemonicParsing="false" onAction="#handleSQLInjection" text="SQL Injection " />
          </children>
       </AnchorPane>
    </children>

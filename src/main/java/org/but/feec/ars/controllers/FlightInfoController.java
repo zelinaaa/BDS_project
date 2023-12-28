@@ -7,14 +7,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import org.but.feec.ars.api.AircraftFareView;
+import org.but.feec.ars.api.CustomerCreateView;
 import org.but.feec.ars.api.FlightInfoView;
+import org.but.feec.ars.data.CustomerRepository;
 import org.but.feec.ars.data.FlightRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
 
 public class FlightInfoController {
+
+    private static final Logger logger = LoggerFactory.getLogger(FlightInfoController.class);
 
     @FXML private Label originAirportLabel;
     @FXML private Label destinationAirportLabel;
@@ -32,11 +38,18 @@ public class FlightInfoController {
     ObservableList<AircraftFareView> aircraft;
 
     private FlightRepository flightRepository;
+    private CustomerCreateView loggedUser;
+    private CustomerRepository customerRepository;
+    private CustomerCreateView loggedUserWithInfo;
 
-    public void initData(FlightInfoView selectedFlight, SearchBookingController parentController){
+    public void initData(CustomerCreateView loggedUser, FlightInfoView selectedFlight, SearchBookingController parentController){
         this.selectedFlight = selectedFlight;
         this.parentController = parentController;
         this.flightRepository = new FlightRepository();
+        this.customerRepository = new CustomerRepository();
+        this.loggedUser = loggedUser;
+
+        loggedUserWithInfo = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
 
         classes = FXCollections.observableArrayList();
         classes.addAll("economy", "economy+", "business", "first class");
@@ -58,8 +71,7 @@ public class FlightInfoController {
         AircraftFareView firstAircraft = aircraft.get(0);
         aircraftModelLabel.setText(firstAircraft.getModel());
 
-        //System.out.println(selectedFlight.getFlight_id());
-
+        logger.info(String.format("User %d selected information about flight with ID %d", loggedUser.getPerson_id(),selectedFlight.getFlight_id()));
     }
 
 

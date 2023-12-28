@@ -19,6 +19,8 @@ import org.but.feec.ars.data.CustomerRepository;
 import org.but.feec.ars.data.FlightRepository;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -26,6 +28,8 @@ import java.math.RoundingMode;
 import java.util.HashMap;
 
 public class BookingController {
+
+    private static final Logger logger = LoggerFactory.getLogger(BookingController.class);
 
     @FXML private Label balanceLabel;
     @FXML private Label priceLabel;
@@ -38,7 +42,7 @@ public class BookingController {
     private FlightScheduleView selectedFlight;
     private AircraftFareView selectedFlightFare;
     ObservableList<AircraftFareView> aircraft;
-    private CustomerCreateView loggedUserOnlyEmail;
+    private CustomerCreateView loggedUser;
     private CustomerRepository customerRepository;
     private FlightRepository flightRepository;
     private BookingRepository bookingRepository;
@@ -49,17 +53,14 @@ public class BookingController {
     ObservableList<SeatView> seatsTemp = FXCollections.observableArrayList();
     ObservableList<BookingView> bookedSeats;
 
-    private CustomerCreateView loggedUserWithInfo;
-
     public void initData(CustomerCreateView loggedUser, ObservableList<AircraftFareView> aircraft , FlightScheduleView flightScheduleView, SearchBookingController parentController){
         this.parentController = parentController;
         this.selectedFlight = flightScheduleView;
         this.aircraft = aircraft;
-        this.loggedUserOnlyEmail = loggedUser;
+        this.loggedUser = loggedUser;
         this.customerRepository = new CustomerRepository();
         this.flightRepository = new FlightRepository();
         this.bookingRepository = new BookingRepository();
-        loggedUserWithInfo = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
 
         //for aircraft_model_id
         AircraftFareView firstAircraft = aircraft.get(0);
@@ -82,7 +83,7 @@ public class BookingController {
         bookedSeats = bookingRepository.getSearchedBookings(flightScheduleView.getFlight_id());
 
         classComboBox.setItems(classes_name);
-        balanceLabel.setText(String.valueOf(loggedUserWithInfo.getBalance()));
+        balanceLabel.setText(String.valueOf(loggedUser.getBalance()));
 
 
     }
@@ -94,13 +95,14 @@ public class BookingController {
         confirmButton.disableProperty().bind(validation.invalidProperty());
 
         if (checkIfEmpty()){
+            logger.info(String.format("User %d tried to make booking, failed, did not enter all parameters.", loggedUser.getPerson_id()));
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Booking failed.");
             alert.setHeaderText("Booking failed. Enter all required parameters.");
             alert.showAndWait();
         }else {
             BookingView bookingView = new BookingView();
-            bookingView.setPerson_id(loggedUserWithInfo.getPerson_id());
+            bookingView.setPerson_id(loggedUser.getPerson_id());
             bookingView.setFlight_id(selectedFlight.getFlight_id());
 
             for (SeatView seatView : seats){
@@ -109,6 +111,8 @@ public class BookingController {
                     break;
                 }
             }
+
+            logger.info(String.format("User with ID %d made booking to flight with ID %d to seat with ID %d ", loggedUser.getPerson_id(), bookingView.getFlight_id(), bookingView.getSeat_id()));
 
             bookingRepository.insertBooking(bookingView);
 
@@ -123,6 +127,7 @@ public class BookingController {
     }
 
     public void handleCancel(ActionEvent event) {
+        logger.info(String.format("User with ID %d canceled booking.", loggedUser.getPerson_id()));
         Stage stageOld = (Stage) cancelButton.getScene().getWindow();
         stageOld.close();
     }

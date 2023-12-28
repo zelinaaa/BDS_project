@@ -3,6 +3,8 @@ package org.but.feec.ars.data;
 import org.but.feec.ars.api.CustomerAuthView;
 import org.but.feec.ars.api.CustomerCreateView;
 import org.but.feec.ars.config.DataSourceConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.PrintStream;
 import java.sql.*;
@@ -10,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class CustomerRepository {
+
+    private static final Logger logger = LoggerFactory.getLogger(CustomerRepository.class);
 
     public CustomerAuthView findCustomerByEmail(String email){
         try (Connection connection = DataSourceConfig.getConnection();
@@ -19,13 +23,16 @@ public class CustomerRepository {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()){
                 if (rs.next()){
+                    logger.info("Select user by email for login from database successful.");
                     return mapToPersonAuth(rs);
                 }
             }
         }
         catch (SQLException e){
+            logger.error("Select user by email for login from database failed: " + e.getMessage());
             System.out.println(e.toString());
         }
+        logger.info("Select user by email for login from database is null.");
         return null;
     }
 
@@ -40,54 +47,71 @@ public class CustomerRepository {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()){
                 if (rs.next()){
+                    logger.info("Select all information about user by email from database successful.");
                     return mapToCustomerView(rs);
                 }
             }
         }
         catch (SQLException e){
+            logger.error("Select all information about user by email from database failed: " + e.getMessage());
             System.out.println(e.toString());
         }
+        logger.info("Select all information about user by email from database is null.");
         return null;
    }
 
-    public void createCustomer(CustomerCreateView customerCreateView){
+    public boolean createCustomer(CustomerCreateView customerCreateView){
         String insertCustomer = "insert into bds.person (email, password_hash) values (?,?)";
         String selectPersonID = "select person_id from bds.person where email=?";
         String assignCustomerRole = "insert into bds.person_has_role (person_id, role_id) values (?, ?)";
 
-        try (Connection connection = DataSourceConfig.getConnection()){
-            PreparedStatement ps1 = connection.prepareStatement(insertCustomer);
-            ps1.setString(1, customerCreateView.getEmail());
-            ps1.setString(2, String.valueOf(customerCreateView.getPassword()));
+        try {
+            Connection connection = DataSourceConfig.getConnection();
+            try {
+                connection.setAutoCommit(false);
 
-            int affectedRows = ps1.executeUpdate();
+                PreparedStatement ps1 = connection.prepareStatement(insertCustomer);
+                ps1.setString(1, customerCreateView.getEmail());
+                ps1.setString(2, String.valueOf(customerCreateView.getPassword()));
 
-            if (affectedRows == 0){
-                //dodělat throw
+                int affectedRows = ps1.executeUpdate();
+
+                if (affectedRows == 0) {
+                    logger.error("Creating customer in database failed.");
+                    throw new RuntimeException("Creating booking failed.");
+                }
+
+                Integer person_id = null;
+
+                PreparedStatement ps2 = connection.prepareStatement(selectPersonID);
+                ps2.setString(1, customerCreateView.getEmail());
+                ResultSet rs = ps2.executeQuery();
+                if (rs.next()) {
+                    logger.error("Select customer from database successful.");
+                    person_id = rs.getInt("person_id");
+                }
+
+                PreparedStatement ps3 = connection.prepareStatement(assignCustomerRole);
+                ps3.setInt(1, person_id);
+                ps3.setInt(2, 1);
+                int affectedRows2 = ps3.executeUpdate();
+
+                if (affectedRows2 == 0) {
+                    logger.error("Assigning role to customer failed.");
+                    throw new RuntimeException("Assigning role to customer failed.");
+                }
+                return true;
+            } catch (SQLException e){
+                logger.error(String.format("Error in creating customer, rollbacking connection.", e.getMessage()));
+                connection.rollback();
+                return false;
+            } finally {
+                connection.setAutoCommit(true);
             }
-
-            Integer person_id = null;
-
-            PreparedStatement ps2 = connection.prepareStatement(selectPersonID);
-            ps2.setString(1, customerCreateView.getEmail());
-            ResultSet rs = ps2.executeQuery();
-            if (rs.next()){
-                person_id = rs.getInt("person_id");
-            }
-
-            PreparedStatement ps3 = connection.prepareStatement(assignCustomerRole);
-            ps3.setInt(1, person_id);
-            ps3.setInt(2, 1);
-            int affectedRows2 = ps3.executeUpdate();
-
-            if (affectedRows2 == 0){
-                //dodělat throw
-            }
-
         } catch (SQLException e) {
+            logger.error("Creating customer failed.");
             throw new RuntimeException(e);
         }
-
     }
 
     public void updateCustomer(CustomerCreateView customerCreateView){
@@ -113,11 +137,16 @@ public class CustomerRepository {
 
         }catch (SQLException e){
             try{
+                logger.error("Updating customer failed, rolling back transaction: " + e.getMessage());
                 connection.rollback();
-                System.out.println("here1\n" + e);
             }catch (Exception e2){
-                //dodělat exception logger
-                System.out.println("here\n" + e2);
+                logger.error("Rolling back transaction in updating customer failed: " + e2.getMessage());
+            }
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -137,6 +166,7 @@ public class CustomerRepository {
             ps1.setString(1, email);
             ResultSet rs1 = ps1.executeQuery();
             if (rs1.next()){
+                logger.info("Select person_id from database successful.");
                 person_id = rs1.getInt("person_id");
             }
 
@@ -144,12 +174,33 @@ public class CustomerRepository {
             ps2.setInt(1, person_id);
             ResultSet rs2 = ps2.executeQuery();
             if (rs2.next()){
+                logger.info("Select role of person login successful.");
                 return rs2.getInt("role_id");
             }
         } catch (SQLException e) {
+            logger.info("Select role of person failed: " + e.getMessage());
             System.out.println(e);
         }
+        logger.info("Select role of person is null.");
         return null;
+    }
+
+    public void updateBalance(Integer person_id, Double balance){
+        String updateBalance = "update bds.person p set balance = ? where person_id = ?";
+        Connection connection = null;
+
+        try{
+            connection = DataSourceConfig.getConnection();
+            PreparedStatement ps = connection.prepareStatement(updateBalance);
+            ps.setDouble(1, balance);
+            ps.setInt(2, person_id);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            logger.info(String.format("Update balance of person %d failed: %s", person_id, e.getMessage()));
+            throw new RuntimeException(e);
+        }
+
     }
 
 
@@ -169,7 +220,7 @@ public class CustomerRepository {
         customerCreateView.setPhone(rs.getString("phone"));
         customerCreateView.setAddress_id(rs.getInt("address_id"));
         customerCreateView.setPerson_id(rs.getInt("person_id"));
-        customerCreateView.setBalance(rs.getInt("balance"));
+        customerCreateView.setBalance(rs.getDouble("balance"));
         customerCreateView.setPassword(rs.getString("password_hash").toCharArray());
 
         return customerCreateView;

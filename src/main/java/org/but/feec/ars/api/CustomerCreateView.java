@@ -9,7 +9,7 @@ public class CustomerCreateView {
     private String email;
     private String phone;
     private Integer address_id;
-    private Integer balance;
+    private Double balance;
     private char[] password;
 
     private Integer role_id;
@@ -89,11 +89,11 @@ public class CustomerCreateView {
         this.address_id = address_id;
     }
 
-    public Integer getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 }

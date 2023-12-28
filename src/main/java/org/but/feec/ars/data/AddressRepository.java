@@ -2,8 +2,11 @@ package org.but.feec.ars.data;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.but.feec.ars.App;
 import org.but.feec.ars.api.AddressDetailView;
 import org.but.feec.ars.config.DataSourceConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressRepository {
+
+    private static final Logger logger = LoggerFactory.getLogger(AddressRepository.class);
 
     public ObservableList<AddressDetailView> getAllAddresses(){
         List<AddressDetailView> addressList = new ArrayList<>();
@@ -31,8 +36,9 @@ public class AddressRepository {
             }
         }catch (SQLException e){
             System.out.println(e.toString());
+            logger.error("Select all address from database failed: " + e.getMessage());
         }
-        //return null;
+        logger.info("Select all address from database successful.");
         return FXCollections.observableArrayList(addressList);
     }
 

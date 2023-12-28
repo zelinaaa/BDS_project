@@ -10,12 +10,21 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.but.feec.ars.App;
 import org.but.feec.ars.api.CustomerCreateView;
+import org.but.feec.ars.data.BookingRepository;
+import org.but.feec.ars.data.CustomerRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 public class LoggedInController {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoggedInController.class);
     private CustomerCreateView loggedUser;
     private LogInController parentController;
+
+    private CustomerCreateView loggedUserWithInfo;
+    private CustomerRepository customerRepository;
     
     @FXML private Button aboutButton;
     @FXML private Button contactsButton;
@@ -30,22 +39,25 @@ public class LoggedInController {
     public void initdata(CustomerCreateView loggedUser, LogInController parentController){
         this.parentController = parentController;
         this.loggedUser = loggedUser;
+        this.customerRepository = new CustomerRepository();
+        this.loggedUserWithInfo = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
     }
 
     public void handleAbout(ActionEvent event) {
-        
     }
 
     public void handleContacs(ActionEvent event) {
     }
 
     public void handleLogOut(ActionEvent event) {
+        logger.info(String.format("User %d logged out.", loggedUserWithInfo.getPerson_id()));
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(App.class.getResource("App.fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
+            logger.error("Error in loading new scene: " + e.getMessage());
             throw new RuntimeException(e);
         }
         Stage stage = new Stage();
@@ -66,6 +78,7 @@ public class LoggedInController {
         try{
             scene = new Scene(fxmlLoader.load());
         }catch (IOException e){
+            logger.error("Error in loading new scene: " + e.getMessage());
             throw new RuntimeException(e);
         }
         Stage stage = new Stage();
@@ -79,13 +92,32 @@ public class LoggedInController {
     }
 
     public void handleMyBooking(ActionEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(App.class.getResource("fxml/MyBookings.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            logger.error("Error in loading new scene: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+        stage.setTitle("My bookings");
+        stage.setScene(scene);
+
+        MyBookingsController myBookingsController = fxmlLoader.getController();
+        myBookingsController.initData(loggedUserWithInfo, this);
+
+        stage.show();
     }
 
     public void handleSearch(ActionEvent event) {
+        logger.info(String.format("User %d search for a flight.", loggedUserWithInfo.getPerson_id()));
         showSearch(event, searchField.getText());
     }
 
     public void handleSearchAll(ActionEvent event) {
+        logger.info(String.format("User %d search for all flights", loggedUserWithInfo.getPerson_id()));
         showSearch(event, "");
     }
 
@@ -96,6 +128,7 @@ public class LoggedInController {
         try{
             scene = new Scene(fxmlLoader.load());
         }catch (IOException e){
+            logger.error("Error in loading new scene: " + e.getMessage());
             throw new RuntimeException(e);
         }
         Stage stage = new Stage();
@@ -103,7 +136,7 @@ public class LoggedInController {
         stage.setScene(scene);
 
         SearchBookingController searchBookingController = fxmlLoader.getController();
-        searchBookingController.initData(loggedUser, searched, this);
+        searchBookingController.initData(loggedUserWithInfo, searched, this);
 
         stage.show();
     }

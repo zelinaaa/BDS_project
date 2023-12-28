@@ -21,10 +21,14 @@ import org.but.feec.ars.data.CustomerRepository;
 import org.but.feec.ars.data.FlightRepository;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 public class SearchBookingController {
+
+    private static final Logger logger = LoggerFactory.getLogger(SearchBookingController.class);
 
     @FXML private Button bookButton;
     @FXML private Button cancelButton;
@@ -55,12 +59,14 @@ public class SearchBookingController {
 
 
     public void handleBook(ActionEvent event) {
+        logger.info(String.format("User %d books a flight.", loggedUser.getPerson_id()));
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(App.class.getResource("fxml/Booking.fxml"));
         Scene scene = null;
         try{
             scene = new Scene(fxmlLoader.load());
         }catch (IOException e){
+            logger.error("Error in loading new scene: " + e.getMessage());
             throw new RuntimeException(e);
         }
         Stage stage = new Stage();
@@ -76,6 +82,7 @@ public class SearchBookingController {
         bookButton.disableProperty().bind(validation.invalidProperty());
 
         if (flightScheduleView == null){
+            logger.error(String.format("User %d did not select a flight and tried to book.", loggedUser.getPerson_id()));
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Selecting flight failed.");
             alert.setHeaderText("Select a flight and try again.");
@@ -116,6 +123,7 @@ public class SearchBookingController {
                 try{
                     scene = new Scene(fxmlLoader.load());
                 }catch (IOException e){
+                    logger.error("Error in loading new scene: " + e.getMessage());
                     throw new RuntimeException(e);
                 }
                 Stage stage = new Stage();
@@ -124,7 +132,7 @@ public class SearchBookingController {
 
                 FlightInfoController flightInfoController = fxmlLoader.getController();
 
-                flightInfoController.initData(flightInfoView, this);
+                flightInfoController.initData(loggedUser, flightInfoView, this);
 
                 stage.show();
             }

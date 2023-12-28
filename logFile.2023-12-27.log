@@ -1,0 +1,361 @@
+1516 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1427 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1412 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+12460 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+12508 [JavaFX Application Thread] ERROR o.b.f.ars.data.CustomerRepository - Creating customer failed.
+1424 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+9069 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+9099 [JavaFX Application Thread] ERROR o.b.f.ars.data.CustomerRepository - Error in creating customer, rollbacking connection.
+9125 [JavaFX Application Thread] INFO  o.b.f.a.c.SearchBookingController - User with email petr@email.com sign in.
+1391 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+10008 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+10027 [JavaFX Application Thread] ERROR o.b.f.ars.data.CustomerRepository - Error in creating customer, rollbacking connection.
+10038 [JavaFX Application Thread] INFO  o.b.f.a.c.SearchBookingController - User with email petr@email.com sign in.
+1508 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+10084 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+10104 [JavaFX Application Thread] ERROR o.b.f.ars.data.CustomerRepository - Error in creating customer, rollbacking connection.
+13934 [JavaFX Application Thread] INFO  o.b.f.a.c.SearchBookingController - User with email petr@email.com bad sign in.
+53057 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+53062 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+53596 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+53598 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+53601 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+53601 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+53605 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+53606 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+53615 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+53616 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+73486 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+73487 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+73489 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+73494 [JavaFX Application Thread] INFO  o.b.feec.ars.data.AddressRepository - Select all address from database successful.
+90987 [JavaFX Application Thread] INFO  o.b.f.a.c.EditCustomerController - User 53 edited their account settings.
+90988 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+133092 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1955 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+7450 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7460 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+8328 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8329 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+8332 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+8332 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+1423 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+5904 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+5914 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+6509 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6511 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+6514 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+6515 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6518 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+6519 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+6529 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6530 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+2069 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+6686 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6780 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+7601 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7602 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+7669 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+7670 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7676 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+7677 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+7688 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7689 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+144048 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+149560 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+149560 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+150121 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+150122 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+150124 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+150124 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+150128 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+150128 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+150134 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+150134 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+151449 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+175604 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+175605 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+176131 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+176132 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+176134 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+176134 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+176137 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+176138 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+176145 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+176146 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+177609 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+235485 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+235486 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+236022 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+236023 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+236025 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+236025 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+236029 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+236029 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+236034 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+236035 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+306513 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1849 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: FATAL: database "ars&ssl&sslmode=verify-ca" does not exist
+2367 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1728 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2247 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+14017 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+1711 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2238 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1726 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2247 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1717 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2233 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+2061 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2973 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1716 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2245 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1729 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2261 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1717 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2255 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1717 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Server nepodporuje SSL.
+2239 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1685 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Invalid sslmode value: verify-ca"
+2219 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1675 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Invalid sslmode value: verify-ca"
+2200 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+1453 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+7599 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7632 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+8278 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8279 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+8290 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+8291 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8295 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+8295 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+8304 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8305 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+11399 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1431 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+164813 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+194817 [JavaFX Application Thread] ERROR o.b.f.ars.data.CustomerRepository - Select user by email for login from database failed: HikariPool-1 - Connection is not available, request timed out after 30002ms.
+194818 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database is null.
+194818 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+224819 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person failed: HikariPool-1 - Connection is not available, request timed out after 30000ms.
+224819 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person is null.
+224820 [JavaFX Application Thread] ERROR o.b.f.a.controllers.LogInController - Entered wrong credentials with email petr@email.com
+257215 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+1697 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2220 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+7509 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+1696 [JavaFX Application Thread] ERROR o.b.f.ars.config.DataSourceConfig - Connect to database failed: Failed to initialize pool: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2227 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+10514 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+1397 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+6397 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6407 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+6986 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6987 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+6991 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+6991 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6994 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+6994 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+7003 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7004 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+38966 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+38967 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+38969 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+38984 [JavaFX Application Thread] INFO  o.b.feec.ars.data.AddressRepository - Select all address from database successful.
+49385 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+49387 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+49387 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+49388 [JavaFX Application Thread] INFO  o.b.feec.ars.data.AddressRepository - Select all address from database successful.
+51327 [JavaFX Application Thread] INFO  o.b.f.a.c.EditCustomerController - User 53 edited their account settings.
+51327 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+53422 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 search for all flights
+53428 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+53437 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select all flights successful.
+56305 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+56308 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+56308 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+56316 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+57004 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+57005 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+57005 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+57006 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+57908 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+57909 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+57909 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+57910 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+58541 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+58542 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+58543 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+58543 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+59250 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+59251 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+59251 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+59252 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+60068 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+60069 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+60069 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+60071 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+62505 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+62505 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+62506 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+62506 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+63676 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+69475 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+69476 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+70017 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+70018 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+70020 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+70020 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+70023 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+70024 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+70027 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+70028 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+71382 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 search for all flights
+71384 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+71389 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select all flights successful.
+72064 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+72065 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+72066 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+72070 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+78581 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+78582 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+78582 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+78583 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+1391 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+6495 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6504 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+7123 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7124 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+7127 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+7128 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7131 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+7132 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+7141 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7142 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+8383 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 search for all flights
+8397 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8401 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select all flights successful.
+9803 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+9803 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+9804 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+9809 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+9809 [JavaFX Application Thread] INFO  o.b.f.a.c.FlightInfoController - User 53 selected information about flight with ID 1
+16125 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+16126 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+16126 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+16127 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+16127 [JavaFX Application Thread] INFO  o.b.f.a.c.FlightInfoController - User 53 selected information about flight with ID 7
+20246 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+20247 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database is null.
+20247 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+20248 [JavaFX Application Thread] INFO  o.b.feec.ars.data.FlightRepository - Select aircraft info successful.
+20248 [JavaFX Application Thread] INFO  o.b.f.a.c.FlightInfoController - User 53 selected information about flight with ID 10
+24195 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+24196 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+24198 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+24203 [JavaFX Application Thread] INFO  o.b.feec.ars.data.AddressRepository - Select all address from database successful.
+35785 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+140005 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+146964 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+146967 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+147494 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+147496 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+147498 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+147498 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+147500 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+147501 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+147505 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+147506 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+156363 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+161204 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+161205 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+161759 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+161761 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+161762 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+161763 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+161766 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+161766 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+161770 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+161771 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+1385 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+6346 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6355 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+6981 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6982 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+6986 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+6986 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6989 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+6990 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+6998 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6999 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+11481 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1397 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+7130 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7148 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+7742 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7743 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+7747 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+7747 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7752 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+7753 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+7762 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7763 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+141586 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1428 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+18301 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+18311 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+18912 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+18914 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+18917 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+18917 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+18921 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+18921 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+18929 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+18930 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+1393 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+8090 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8099 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+8750 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8751 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+8754 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+8755 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8759 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+8759 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+8768 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8769 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+70288 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1512 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+7384 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7394 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+8074 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8075 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+8078 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+8079 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8082 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+8082 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+8090 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+8091 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+1430 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+6317 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6327 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+6932 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6933 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+6936 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+6937 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6940 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+6941 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+6949 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6950 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+43919 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.
+1410 [JavaFX Application Thread] INFO  org.but.feec.ars.App - App started.
+6670 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+6689 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select user by email for login from database successful.
+7274 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7275 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select person_id from database successful.
+7278 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select role of person login successful.
+7278 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7283 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+7284 [JavaFX Application Thread] INFO  o.b.f.a.controllers.LogInController - User 53 logged in as customer.
+7292 [JavaFX Application Thread] INFO  o.b.f.ars.config.DataSourceConfig - Connection to database established.
+7293 [JavaFX Application Thread] INFO  o.b.f.ars.data.CustomerRepository - Select all information about user by email from database successful.
+27595 [JavaFX Application Thread] INFO  o.b.f.a.c.LoggedInController - User 53 logged out.

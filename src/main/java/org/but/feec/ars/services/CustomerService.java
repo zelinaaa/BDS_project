@@ -12,12 +12,12 @@ public class CustomerService {
         this.customerRepository = personRepository;
     }
 
-    public void createCustomer(CustomerCreateView customerCreateView){
+    public boolean createCustomer(CustomerCreateView customerCreateView){
         char[] originalPassword = customerCreateView.getPassword();
         char[] hashedPassword = hashPassword(originalPassword);
         customerCreateView.setPassword(hashedPassword);
 
-        customerRepository.createCustomer(customerCreateView);
+        return customerRepository.createCustomer(customerCreateView);
     }
 
     public char[] hashPassword(char[] password){

@@ -8,16 +8,22 @@ import javafx.stage.Stage;
 import org.but.feec.ars.api.AddressDetailView;
 import org.but.feec.ars.api.CustomerCreateView;
 import org.but.feec.ars.data.AddressRepository;
+import org.but.feec.ars.data.BookingRepository;
 import org.but.feec.ars.data.CustomerRepository;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class EditCustomerController {
+
+    private static final Logger logger = LoggerFactory.getLogger(EditCustomerController.class);
+
 
     @FXML private TextField firstNameTextField;
     @FXML private TextField familyNameTextField;
@@ -32,6 +38,7 @@ public class EditCustomerController {
     private CustomerRepository customerRepository;
     private AddressRepository addressRepository;
     private LocalDate localDate;
+    private CustomerCreateView customerCreateView1;
 
     ObservableList<AddressDetailView> addresses;
     ObservableList<String> genders;
@@ -44,7 +51,7 @@ public class EditCustomerController {
         this.addressRepository = new AddressRepository();
 
 
-        CustomerCreateView customerCreateView1 = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
+        customerCreateView1 = customerRepository.getCustomerInfoByEmail(loggedUser.getEmail());
 
 
         loggedUser.setFirst_name(customerCreateView1.getFirst_name());
@@ -60,6 +67,7 @@ public class EditCustomerController {
         try{
             localDate = LocalDate.parse(loggedUser.getDate_of_birth(), formatter);
         } catch (Exception e){
+            logger.info("Error in parsing date from db while editing customer detail.");
             localDate = null;
         }
 
@@ -90,6 +98,7 @@ public class EditCustomerController {
     }
 
     public void handleConfirm(ActionEvent event) {
+        logger.info(String.format("User %d edited their account settings.", customerCreateView1.getPerson_id()));
         CustomerCreateView editCustomer = new CustomerCreateView();
 
         String first_name = firstNameTextField.getText();
